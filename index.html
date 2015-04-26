@@ -21,6 +21,7 @@ layout: default
       <li><a href="#html-boolean-attributes">Boolean attributes</a></li>
       <li><a href="#html-reducing-markup">Reducing markup</a></li>
       <li><a href="#html-javascript">JavaScript generated markup</a></li>
+      <li><a href="#page-performance">A note about performance</a></li>
     </ul>
   </div>
   <div class="col">
@@ -33,13 +34,18 @@ layout: default
       <li><a href="#css-prefixed-properties">Prefixed properties</a></li>
       <li><a href="#css-single-declarations">Rules with single declarations</a></li>
       <li><a href="#css-shorthand">Shorthand notation</a></li>
-      <li><a href="#css-nesting">Nesting in Less and Sass</a></li>
-      <li><a href="#css-operators">Operators in Less and Sass</a></li>
       <li><a href="#css-comments">Comments</a></li>
       <li><a href="#css-classes">Classes</a></li>
-      <li><a href="#css-variables">Variables</a></li>
       <li><a href="#css-selectors">Selectors</a></li>
       <li><a href="#css-organization">Organization</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4><a href="#sass">Sass</a></h4>
+    <ul>
+      <li><a href="#sass-nesting">Nesting in Less and Sass</a></li>
+      <li><a href="#sass-operators">Operators in Less and Sass</a></li>
+      <li><a href="#sass-variables">Variables</a></li>
     </ul>
   </div>
 </div>
@@ -129,7 +135,6 @@ layout: default
   <div class="col">
     <h3>CSS and JavaScript includes</h3>
     <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
-    <p>Striving for performance only critical CSS should be loaded in the head of the document. All JavaScript should be placed just before the closing <code></body></code> tag and loaded asynchronously if possible.</p>
     <h4>HTML5 spec links</h4>
     <ul>
       <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
@@ -162,6 +167,7 @@ layout: default
       <li><code>aria-*</code>, <code>role</code></li>
     </ul>
     <p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
+    <p>In order to be accessable to all users links should always have a <code>title</code> tag, and images important to content should always have an <code>alt</code> tag. The contents of the title and alt tags should be useful and relate to the content they are describing (e.g., <code>title="learn more about x"</code> not <code>title="learn more"</code>).</p>
   </div>
   <div class="col">
     {% highlight html %}{% include html/attribute-order.html %}{% endhighlight %}
@@ -204,7 +210,12 @@ layout: default
   </div>
 </div>
 
-
+<div class="section" id="page-performance">
+  <div class="col">
+    <h3>A note about performance</h3>
+    <p>Striving for performance only critical CSS should be loaded in the head of the document. All JavaScript should be placed just before the closing <code>&lt;/body&gt;</code> tag and loaded asynchronously if possible.</p>
+  </div>
+</div>
 
 <div class="heading" id="css">
   <h2>CSS</h2>
@@ -323,26 +334,6 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-nesting">
-  <div class="col">
-    <h3>Nesting in Less and Sass</h3>
-    <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
-  </div>
-  <div class="col">
-    {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-operators">
-  <div class="col">
-    <h3>Operators in Less and Sass</h3>
-    <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</p>
-  </div>
-  <div class="col">
-    {% highlight scss %}{% include css/operators.scss %}{% endhighlight %}
-  </div>
-</div>
-
 <div class="section" id="css-comments">
   <div class="col">
     <h3>Comments</h3>
@@ -372,19 +363,6 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-variables">
-  <div class="col">
-    <h3>Variable names</h3>
-    <ul>
-      <li>Keep variables lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related variables (e.g., <code>$primary-color</code>).</li>
-      <li>Use meaningful names; use structural or purposeful names over presentational.(e.g., <code>$primary-color</code> not <code>$green</code>).</li>
-    </ul>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/variable-names.css %}{% endhighlight %}
-  </div>
-</div>
-
 <div class="section" id="css-selectors">
   <div class="col">
     <h3>Selectors</h3>
@@ -402,6 +380,43 @@ layout: default
   </div>
   <div class="col">
     {% highlight css %}{% include css/selectors.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="heading" id="sass">
+  <h2>Sass</h2>
+</div>
+
+<div class="section" id="sass-nesting">
+  <div class="col">
+    <h3>Nesting in Less and Sass</h3>
+    <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-operators">
+  <div class="col">
+    <h3>Operators in Less and Sass</h3>
+    <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</p>
+  </div>
+  <div class="col">
+    {% highlight scss %}{% include css/operators.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-variables">
+  <div class="col">
+    <h3>Variable names</h3>
+    <ul>
+      <li>Keep variables lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related variables (e.g., <code>$primary-color</code>).</li>
+      <li>Use meaningful names; use structural or purposeful names over presentational.(e.g., <code>$primary-color</code> not <code>$green</code>).</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/variable-names.css %}{% endhighlight %}
   </div>
 </div>
 
