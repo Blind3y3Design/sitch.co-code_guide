@@ -47,7 +47,7 @@ layout: default
 <div class="section" id="golden-rule">
   <div class="col">
     <h2>Golden rule</h2>
-    <p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what's incorrect. For additions or contributions to this Code Guide, please <a href="https://github.com/mdo/code-guide/issues/new">open an issue on GitHub</a>.</p>
+    <p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what's incorrect. For additions or contributions to this Code Guide, please <a href="https://github.com/blind3y3design/sitch.co-code_guide/issues/new">open an issue on GitHub</a>.</p>
   </div>
   <div class="col">
     <blockquote>
@@ -362,11 +362,24 @@ layout: default
       <li>Use meaningful names; use structural or purposeful names over presentational.</li>
       <li>Prefix classes based on the closest parent or base class.</li>
       <li>Use <code>.js-*</code> classes to denote behavior (as opposed to style), but keep these classes out of your CSS.</li>
+      <li>Use <code>.ga-*</code> classes to denote analytics, again keep these classes out of your CSS.</li>
     </ul>
-    <p>It's also useful to apply many of these same rules when creating Sass and Less variable names.</p>
   </div>
   <div class="col">
     {% highlight css %}{% include css/class-names.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="variable-names">
+  <div class="col">
+    <h3>Variable names</h3>
+    <ul>
+      <li>Keep variables lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related variables (e.g., <code>$primary-color</code>).</li>
+      <li>Use meaningful names; use structural or purposeful names over presentational.(e.g., <code>$primary-color</code>) not <code>$green</code>.</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/variable-names.css %}{% endhighlight %}
   </div>
 </div>
 

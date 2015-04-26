@@ -1,0 +1,9 @@
+/* Bad example */
+$green { ... }
+blackText { ... }
+$orange_button { ... }
+
+/* Good example */
+$primary-color { ... }
+$primary-copy-color { ... }
+$warning-button-color { ... }

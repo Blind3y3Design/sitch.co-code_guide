@@ -67,7 +67,7 @@ h1, h2, h3, h4 {
   margin: 0 0 .5rem;
   font-weight: normal;
   line-height: 1;
-  color: #2a2a2a;
+  color: #c0d634;
   letter-spacing: -.05em;
 }
 h1 { font-size: 3rem; }
@@ -157,7 +157,7 @@ pre code {
   max-width: 40rem;
 }
 .col + .col {
-  border-top: 1px solid #dfe1e8;
+  border-top: 1px solid #717171;
   background-color: #f7f7f9;
 }
 @media (min-width: 38em) {
@@ -195,7 +195,7 @@ pre code {
   padding: 3rem 1rem;
   color: rgba(255,255,255,.5);
   text-align: center;
-  background-color: #2a3440;
+  background-color: #c0d634;
 }
 .masthead h1 {
   color: #fff;
@@ -232,7 +232,7 @@ pre code {
 
 .heading {
   padding: 2rem 1rem 1.5rem;
-  background-color: #dfe1e8;
+  background-color: #717171;
 }
 
 @media (min-width: 38em) {
@@ -242,7 +242,7 @@ pre code {
 }
 
 .section {
-  border-bottom: 1px solid #dfe1e8;
+  border-bottom: 1px solid #717171;
 }
 
 
