@@ -37,6 +37,7 @@ layout: default
       <li><a href="#css-operators">Operators in Less and Sass</a></li>
       <li><a href="#css-comments">Comments</a></li>
       <li><a href="#css-classes">Classes</a></li>
+      <li><a href="#css-variables">Variables</a></li>
       <li><a href="#css-selectors">Selectors</a></li>
       <li><a href="#css-organization">Organization</a></li>
     </ul>
@@ -128,6 +129,7 @@ layout: default
   <div class="col">
     <h3>CSS and JavaScript includes</h3>
     <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
+    <p>Striving for performance only critical CSS should be loaded in the head of the document. All JavaScript should be placed just before the closing <code></body></code> tag and loaded asynchronously if possible.</p>
     <h4>HTML5 spec links</h4>
     <ul>
       <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
@@ -370,12 +372,12 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="variable-names">
+<div class="section" id="css-variables">
   <div class="col">
     <h3>Variable names</h3>
     <ul>
       <li>Keep variables lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related variables (e.g., <code>$primary-color</code>).</li>
-      <li>Use meaningful names; use structural or purposeful names over presentational.(e.g., <code>$primary-color</code>) not <code>$green</code>.</li>
+      <li>Use meaningful names; use structural or purposeful names over presentational.(e.g., <code>$primary-color</code> not <code>$green</code>).</li>
     </ul>
   </div>
   <div class="col">
