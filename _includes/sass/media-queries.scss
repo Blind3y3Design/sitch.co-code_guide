@@ -1,0 +1,27 @@
+// Old CSS style
+.element { ... }
+.element-avatar { ... }
+.element-selected { ... }
+
+@media (min-width: 480px) {
+  .element { ...}
+  .element-avatar { ... }
+  .element-selected { ... }
+}
+
+// Proper Scss style
+
+.element {
+  ...
+
+  @media (max-width: 400pz) {
+    ...
+  }
+
+  .child-selector {
+    ...
+  }
+}
+
+.element-avatar { ... }
+.element-selected { ... }

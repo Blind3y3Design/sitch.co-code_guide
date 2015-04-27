@@ -1,0 +1,26 @@
+// Bad Example
+.div-with-class{
+ ...
+
+  div {
+
+    div {
+
+      p.copy {
+
+        span {
+
+        }
+      }
+    }
+  }
+}
+
+// Good Example
+.div-with-class { ... }
+.copy {
+
+  span {
+    
+  }
+}

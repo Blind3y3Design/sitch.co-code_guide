@@ -21,7 +21,6 @@ layout: default
       <li><a href="#html-boolean-attributes">Boolean attributes</a></li>
       <li><a href="#html-reducing-markup">Reducing markup</a></li>
       <li><a href="#html-javascript">JavaScript generated markup</a></li>
-      <li><a href="#page-performance">A note about performance</a></li>
     </ul>
   </div>
   <div class="col">
@@ -30,14 +29,12 @@ layout: default
       <li><a href="#css-syntax">CSS syntax</a></li>
       <li><a href="#css-declaration-order">Declaration order</a></li>
       <li><a href="#css-import">Don't use @import</a></li>
-      <li><a href="#css-media-queries">Media query placement</a></li>
       <li><a href="#css-prefixed-properties">Prefixed properties</a></li>
       <li><a href="#css-single-declarations">Rules with single declarations</a></li>
       <li><a href="#css-shorthand">Shorthand notation</a></li>
       <li><a href="#css-comments">Comments</a></li>
       <li><a href="#css-classes">Classes</a></li>
       <li><a href="#css-selectors">Selectors</a></li>
-      <li><a href="#css-organization">Organization</a></li>
     </ul>
   </div>
   <div class="col">
@@ -46,6 +43,15 @@ layout: default
       <li><a href="#sass-nesting">Nesting in Less and Sass</a></li>
       <li><a href="#sass-operators">Operators in Less and Sass</a></li>
       <li><a href="#sass-variables">Variables</a></li>
+      <li><a href="#sass-media-queries">Media query placement</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4><a href="#structure">Structure</a></h4>
+    <ul>
+      <li><a href="#structure-organization">Organization</a></li>
+      <li><a href="#structure-performance">Performance</a></li>
+      <li><a href="#structure-editor-prefs">Editor Preferences</a></li>
     </ul>
   </div>
 </div>
@@ -210,13 +216,6 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="page-performance">
-  <div class="col">
-    <h3>A note about performance</h3>
-    <p>Striving for performance only critical CSS should be loaded in the head of the document. All JavaScript should be placed just before the closing <code>&lt;/body&gt;</code> tag and loaded asynchronously if possible.</p>
-  </div>
-</div>
-
 <div class="heading" id="css">
   <h2>CSS</h2>
 </div>
@@ -279,16 +278,6 @@ layout: default
   </div>
   <div class="col">
     {% highlight html %}{% include css/import.html %}{% endhighlight %}
-  </div>
-</div>
-
-<div class="section" id="css-media-queries">
-  <div class="col">
-    <h3>Media query placement</h3>
-    <p>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.</p>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/media-queries.css %}{% endhighlight %}
   </div>
 </div>
 
@@ -387,13 +376,29 @@ layout: default
   <h2>Sass</h2>
 </div>
 
+<div class="section" id="sass-guidelines">
+  <div class="col">
+    <h3>Preprocessor guidelines</h3>
+    <p>The team has chosen to use the Sass preprocessor. For this reason all new projects should use Sass over less whenever possible. The Sass syntax in use is the Scss syntax due to it's more familiar look and readability.</p>
+  </div>
+</div>
+
 <div class="section" id="sass-nesting">
   <div class="col">
     <h3>Nesting in Less and Sass</h3>
-    <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
+    <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested. Nested selectors should be 1 line below the parent and all parent styles and media queries.</p>
+    <p>If you are going to nest don't go more than 3 levels deep. Anything else tends to result in unnecessary specificity and overrides.</p>
   </div>
   <div class="col">
-    {% highlight scss %}{% include css/nesting.scss %}{% endhighlight %}
+    {% highlight scss %}{% include sass/nesting.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="sass-modules">
+  <div class="col">
+    <h3>Modules in Less and Sass</h3>
+    <p>Using the ability to concatenate files allows for our styles to be built in a modular manner. Each core component should have it's own file. This allows for easy location of related styles and clearly defines the styles intention.</p>
+    <p>The nesting guidelines should always be followed and whenever possible try to keep the file around 100 lines. If the file begins to get too long consider refactoring or breaking in to more modules.</p>
   </div>
 </div>
 
@@ -403,7 +408,7 @@ layout: default
     <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</p>
   </div>
   <div class="col">
-    {% highlight scss %}{% include css/operators.scss %}{% endhighlight %}
+    {% highlight scss %}{% include sass/operators.scss %}{% endhighlight %}
   </div>
 </div>
 
@@ -416,11 +421,26 @@ layout: default
     </ul>
   </div>
   <div class="col">
-    {% highlight css %}{% include css/variable-names.css %}{% endhighlight %}
+    {% highlight css %}{% include sass/variable-names.scss %}{% endhighlight %}
   </div>
 </div>
 
-<div class="section" id="css-organization">
+<div class="section" id="sass-media-queries">
+  <div class="col">
+    <h3>Media query placement</h3>
+    <p>Place media queries inside the selector they affect, after all styles and before any child selectors. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.</p>
+    <p>Media queries should follow the same 1 line seperation as with nesting a child selector.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include sass/media-queries.scss %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="heading" id="structure">
+  <h2>Structure</h2>
+</div>
+
+<div class="section" id="structure-organization">
   <div class="col">
     <h3>Organization</h3>
     <ul>
@@ -435,7 +455,14 @@ layout: default
   </div>
 </div>
 
-<div class="section" id="css-editor-prefs">
+<div class="section" id="structure-performance">
+  <div class="col">
+    <h3>A note about performance</h3>
+    <p>Striving for performance only critical CSS should be loaded in the head of the document. All JavaScript should be placed just before the closing <code>&lt;/body&gt;</code> tag and loaded asynchronously if possible.</p>
+  </div>
+</div>
+
+<div class="section" id="structure-editor-prefs">
   <div class="col">
     <h3>Editor preferences</h3>
     <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
