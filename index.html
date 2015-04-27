@@ -37,6 +37,8 @@ layout: default
       <li><a href="#css-selectors">Selectors</a></li>
     </ul>
   </div>
+</div>
+<div class="section toc">
   <div class="col">
     <h4><a href="#sass">Sass</a></h4>
     <ul>
@@ -397,8 +399,23 @@ layout: default
 <div class="section" id="sass-modules">
   <div class="col">
     <h3>Modules in Less and Sass</h3>
-    <p>Using the ability to concatenate files allows for our styles to be built in a modular manner. Each core component should have it's own file. This allows for easy location of related styles and clearly defines the styles intention.</p>
+    <p>Using the ability to concatenate files allows for our styles to be built in a modular manner. Each core module should have it's own file. This allows for easy location of related styles and clearly defines the styles intention.</p>
     <p>The nesting guidelines should always be followed and whenever possible try to keep the file around 100 lines. If the file begins to get too long consider refactoring or breaking in to more modules.</p>
+  </div>
+</div>
+
+<div class="section" id"sass-module-comments">
+  <div class="col">
+    <h3>Module Comments</h3>
+    <ul>
+      <li>Organize sections of code by component.</li>
+      <li>Develop a consistent commenting hierarchy.</li>
+      <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents. One line below comments and two lines seperating code and a following component comment. Contextual sub-comments should be seperated above by a single line and followed directly by the related code.</li>
+      <li>When using multiple Scss files, break them down by module instead of page. Pages can be rearranged and modules moved.</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include sass/module-comments.scss %}{% endhighlight %}
   </div>
 </div>
 
@@ -438,21 +455,6 @@ layout: default
 
 <div class="heading" id="structure">
   <h2>Structure</h2>
-</div>
-
-<div class="section" id="structure-organization">
-  <div class="col">
-    <h3>Organization</h3>
-    <ul>
-      <li>Organize sections of code by component.</li>
-      <li>Develop a consistent commenting hierarchy.</li>
-      <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents.</li>
-      <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
-    </ul>
-  </div>
-  <div class="col">
-    {% highlight css %}{% include css/organization-comments.css %}{% endhighlight %}
-  </div>
 </div>
 
 <div class="section" id="structure-performance">
